@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import PhonebookApp from './components/PhonebookApp';
+import { PhonebookApp } from 'components/PhonebookApp/PhonebookApp';
 import { Provider } from 'react-redux/es/exports';
 import store from './redux/store'
 

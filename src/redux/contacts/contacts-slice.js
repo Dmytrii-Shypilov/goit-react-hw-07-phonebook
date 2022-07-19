@@ -9,11 +9,18 @@ const initialState = {
   items: [],
   loading: false,
   error: null,
+  filter: '',
 };
 
 const contactsSlice = createSlice({
   name: 'contacts',
   initialState,
+  reducers: {
+    getFilter: (store, {payload}) => ({
+      ...store,
+      filter: payload
+    })
+  }, 
   extraReducers: {
     [fetchContacts.pending]: (store, _) => ({
       ...store,
@@ -52,6 +59,7 @@ const contactsSlice = createSlice({
       const newList = store.items.filter(contact => contact.id !== payload);
       store.items = newList;
       store.loading = false;
+      store.filter = ""
     },
     [removeContact.rejected]: (store, { payload }) => {
       store.loading = false;
@@ -60,4 +68,5 @@ const contactsSlice = createSlice({
   },
 });
 
+export const {actions} = contactsSlice
 export default contactsSlice.reducer;

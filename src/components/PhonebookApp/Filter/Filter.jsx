@@ -2,10 +2,15 @@ import style from './filter.module.css';
 
 import PropTypes from 'prop-types';
 
-const Filter = ({ filterChange }) => {
+const Filter = ({ filterChange, filterInput }) => {
   return (
     <div className={style.filter}>
-      <input onChange={filterChange} type="text" placeholder="Search" />
+      <input
+        onChange={filterChange}
+        value={filterInput}
+        type="text"
+        placeholder="Search"
+      />
     </div>
   );
 };
